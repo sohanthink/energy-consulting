@@ -1,0 +1,12 @@
+/* Common Transition Style */
+%transition{
+    transition: all linear .3s;
+}
+
+/* Common Font-Awesome font-family Style */
+%full-width{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    inset: 0;
+}

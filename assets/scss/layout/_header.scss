@@ -1,0 +1,117 @@
+/* Header Section Style */
+.header{
+	position: absolute;
+	top: 0;
+	z-index: 9;
+	@extend %transition;
+
+	.navbar{
+		&-brand__text{
+			font-family: $font-primary;
+			font-weight: 700;
+			@include mobile-xxs{
+				font-size: toRem(16);
+			}
+		}
+
+		&-toggler{
+			font-size: toRem(25);
+			color: $color-text;
+			padding: 4px;
+			z-index: 8;
+			border: 1px solid $color-text;
+			@extend %transition;
+			&[aria-expanded="true"],
+			&:hover{
+				color: $color-primary;
+				border-color: $color-primary;
+			}
+		}
+		&-collapse{
+			@include mobile{
+				position: fixed;
+				top: 0;
+				right: 0;
+				transform: translateX(100%);
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+				width: 50%;
+				height: 100vh;
+				background-color: $color-white;
+				transition: transform ease-in-out .3s;
+				&.show{
+					transform: translateX(0);
+				}
+				.navbar-nav{
+					width: 100%;
+					margin-top: toRem(20);
+					.nav-item{
+						margin: 0.3rem 0.6rem;
+					}
+				}
+			}
+			@include mobile-xxs{
+				width: 100%;
+			}
+		}
+		.nav{
+			&-link{
+				color: $color-black;
+				font-size: toRem(18);
+				font-weight: 400;
+				font-family: $font-primary;
+				padding-left: toRem(15);
+				padding-right: toRem(15);
+				@extend %transition;
+				&.active,
+				&:hover,
+				&:focus-visible{
+					color: $color-primary;
+					text-decoration: underline;
+				}
+				&.active{
+					font-weight: 600;
+				}
+			}
+		}
+	}
+	&--fixed{
+		position: fixed;
+		transform: translateY(-100%);
+		box-shadow: 0 3px 18px rgba($color-black, $alpha: 0.12);
+		animation: header_in .4s linear forwards;
+	}
+}
+
+/* Fixed Header animation */
+@keyframes header_in{
+	0%{
+		transform: translateY(-100%);
+	}
+	100%{
+		transform: translateY(0);
+	}
+}
+
+/* Off Canvas Navbar Toggler */
+.offCanvasMenuCloser{
+	top: 0;
+	left: 0;
+	transform: translateX(100%);
+	width: 100%;
+	height: 100%;
+	background: rgba($color: #000000, $alpha: 0.5);
+	z-index: 8;
+	opacity: 0;
+	transition: opacity .4s ease .4s;
+	display: none;
+	&.show{
+		transform: translateX(0);
+		opacity: 1;
+	}
+	@include mobile-xxs-to-mobile{
+		display: block;
+	}
+}

@@ -1,0 +1,42 @@
+/* Footer Section Style */
+.footer{
+    color: $color-white;
+    
+    &__top{
+        background-color: $color-footer;
+        background-image: url('../images/icons/map-pattern.png');
+    }
+    &__bottom{
+        background-color: $color-dark;
+    }
+
+    &__link{
+        display: inline-block;
+        font-size: toRem(30);
+        @include min-tablet{
+            font-size: toRem(50);
+        }
+        font-weight: 300;
+        color: $color-primary;
+        word-wrap: anywhere;
+        @extend %transition;
+    }
+
+    &__address{       
+        color: lighten($color-text, $amount: 20);
+    }
+
+    &__copyright{
+        color: lighten($color-text, $amount: 20);
+        font-size: toRem(14);
+        &__link{
+            @extend %transition;
+
+            &:hover,
+            &:focus{
+                color: $color-primary;
+                text-decoration: underline;
+            }
+        }
+    }
+}

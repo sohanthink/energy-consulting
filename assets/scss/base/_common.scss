@@ -1,0 +1,149 @@
+/* Reset CSS */
+*,
+*::before,
+*::after {
+	margin: 0;
+	padding: 0;
+	outline: none;
+	-webkit-tap-highlight-color: transparent;
+}
+
+::selection{
+	color: $color-white;
+	background: $color-primary;
+}
+
+html,
+body{
+	scroll-behavior: smooth;
+}
+
+html{
+	font-size: 16px;
+	text-size-adjust: none;
+}
+
+body {
+	color: $color-title;
+	font-weight: 400;
+	font-family: $font-primary;
+	background-color: $color-bg;
+	overflow-x: hidden;
+}
+
+a,
+a:hover,
+a:focus,
+a:active {
+	text-decoration: none;
+	color: unset;
+}
+
+button,
+button:hover,
+button:focus,
+button:active {
+	outline: none;
+}
+
+input:-webkit-autofill{
+	-webkit-text-fill-color: unset;
+	transition: background-color 5000s;
+}
+
+ul,
+ol {
+	list-style: none;
+}
+
+img{
+	display: block;
+	max-width: 100%;
+	object-fit: cover;
+}
+
+.object-fit--contain{
+	object-fit: contain;
+}
+
+
+.user-select-none{
+	pointer-events: none;
+}
+
+.list-inline{
+	font-size: 0;
+	&-item{
+		font-size: 1rem;
+	}
+}
+
+/* Common Slick Style */
+.slick{
+	&-dots{
+		display: flex;
+		justify-content: center;
+		margin-bottom: 0;
+		line-height: 0;
+		li{
+			&:not(:last-child){
+				margin-right: 0.5rem;
+			}
+			button{
+				font-size: 0;
+				width: toRem(15);
+				height: toRem(15);
+				border-radius: toRem(15);
+				background-color: transparent;
+				border: 1px solid $color-white;
+				@extend %transition;
+			}
+			&.slick-active{
+				button{
+					background-color: $color-white;
+				}
+			}
+		}
+	}
+}
+
+/* Common Section Gap Style */
+.section-gap{
+	padding: 6rem 0;
+	@include desktop{
+		padding: 3rem 0;
+	}
+	&--fix{
+		padding-bottom: calc(6rem - 30px);
+		@include desktop{
+			padding-bottom: calc(3rem - 30px);
+		}
+	}
+}
+
+/* Common Section Heading Style */
+.section-header{
+	margin-bottom: toRem(50);
+	@include mobile{
+		margin-bottom: toRem(30);
+	}
+
+	&__icon{
+		width: toRem(70);
+		height: toRem(70);
+		background: $color-white;
+		padding: toRem(10);
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	&__title{
+		margin-top: toRem(10);
+		font-size: toRem(40);
+		font-family: $font-primary;
+		font-weight: 700;
+		@include tablet{
+			font-size: toRem(22);
+		}
+	}
+}

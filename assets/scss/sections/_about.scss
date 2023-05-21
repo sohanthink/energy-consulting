@@ -1,0 +1,18 @@
+.about{
+    &__figure{
+        position: relative;
+        padding-top: 50%;
+
+        &__image{
+           @extend %full-width;
+        }
+    }
+
+    &__content{
+        &__title{
+            font-size: toRem(24);
+            margin-bottom: toRem(15);
+            font-weight: 700;
+        }
+    }
+}
